@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <style>
+        /* Styles remain the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(6, 33, 57);
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .users-container {
+            background-color:  #a4bfd3;
+            padding: 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .user {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .user:last-child {
+            border-bottom: none;
+        }
+
+        .user-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-btn {
+            background-color: #f44336; /* Red */
+            color: #fff;
+        }
+
+        .unblock-btn {
+            background-color: #4caf50; /* Green */
+            color: #fff;
+        }
+
+        .delete-btn {
+            background-color: #ff9800; /* Orange */
+            color: #fff;
+        }
+
+        .message {
+            color: green;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>All Registered Users</h2>
+    <div class="users-container" id="usersContainer">
+        <!-- Users will be displayed here -->
+    </div>
+    <p class="message" id="message"></p>
+
+    <script>
+        // Function to render users
+        function renderUsers() {
+            const usersContainer = document.getElementById('usersContainer');
+            usersContainer.innerHTML = ''; // Clear previous content
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            users.forEach((user, index) => {
+                const userDiv = document.createElement('div');
+                userDiv.classList.add('user');
+                userDiv.innerHTML = `
+                    <div class="user-info">
+                        <strong>${user.username}</strong> <br>
+                        Email: ${user.email} <br>
+                        Role: ${user.role} <!-- Displaying the user's role here -->
+                    </div>
+                    <div class="action-buttons">
+                        <button class="block-btn" onclick="blockUser(${index})">Block</button>
+                        <button class="unblock-btn" onclick="unblockUser(${index})">Unblock</button>
+                        <button class="delete-btn" onclick="deleteUser(${index})">Delete</button>
+                    </div>
+                `;
+                usersContainer.appendChild(userDiv);
+            });
+        }
+
+        // Function to block a user
+        function blockUser(index) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const blockedUser = users[index];
+            blockedUser.blocked = true;
+            localStorage.setItem('users', JSON.stringify(users));
+            renderUsers();
+            showMessage(`${blockedUser.username} has been blocked.`);
+        }
+
+        // Function to unblock a user
+        function unblockUser(index) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const unblockedUser = users[index];
+            unblockedUser.blocked = false;
+            localStorage.setItem('users', JSON.stringify(users));
+            renderUsers();
+            showMessage(`${unblockedUser.username} has been unblocked.`);
+        }
+
+        // Function to delete a user
+        function deleteUser(index) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            users.splice(index, 1);
+            localStorage.setItem('users', JSON.stringify(users));
+            renderUsers();
+            showMessage(`User has been deleted.`);
+        }
+
+        // Function to show messages
+        function showMessage(msg) {
+            const messageElement = document.getElementById('message');
+            messageElement.innerText = msg;
+            setTimeout(() => {
+                messageElement.innerText = '';
+            }, 3000);
+        }
+
+        // Initial render
+        renderUsers();
+    </script>
+
+</body>
+</html>
+

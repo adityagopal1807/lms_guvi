@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz on Embedded Systems</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#quote {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #d63447;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #d63447;
+}
+
+.question {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #d63447;
+    border-radius: 5px;
+}
+
+.question h3 {
+    color: #333;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #d63447;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+#quote {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #d63447;
+}
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>QUIZ Questions</h1>
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h3>1. What is a characteristic of embedded systems?</h3>
+                <label><input type="radio" name="q1" value="A"> A) They perform multiple tasks simultaneously.</label><br>
+                <label><input type="radio" name="q1" value="B"> B) They execute a particular operation continually.</label><br>
+                <label><input type="radio" name="q1" value="C"> C) They require extensive secondary memory.</label><br>
+                <label><input type="radio" name="q1" value="D"> D) They cannot interact with external devices.</label><br>
+                <div id="answer1"></div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h3>2. Which of the following is NOT a design metric for embedded systems?</h3>
+                <label><input type="radio" name="q2" value="A"> A) Cost</label><br>
+                <label><input type="radio" name="q2" value="B"> B) Size</label><br>
+                <label><input type="radio" name="q2" value="C"> C) Complexity</label><br>
+                <label><input type="radio" name="q2" value="D"> D) Power consumption</label><br>
+                <div id="answer2"></div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <h3>3. An embedded system typically includes:</h3>
+                <label><input type="radio" name="q3" value="A"> A) Only hardware components</label><br>
+                <label><input type="radio" name="q3" value="B"> B) Only software components</label><br>
+                <label><input type="radio" name="q3" value="C"> C) Both hardware and software components</label><br>
+                <label><input type="radio" name="q3" value="D"> D) None of the above</label><br>
+                <div id="answer3"></div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <h3>4. What is the primary function of a microcontroller in an embedded system?</h3>
+                <label><input type="radio" name="q4" value="A"> A) Storage of data</label><br>
+                <label><input type="radio" name="q4" value="B"> B) Execute control instructions</label><br>
+                <label><input type="radio" name="q4" value="C"> C) Manage power supply</label><br>
+                <label><input type="radio" name="q4" value="D"> D) Connect to the internet</label><br>
+                <div id="answer4"></div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <h3>5. In the context of embedded systems, what does 'real-time' mean?</h3>
+                <label><input type="radio" name="q5" value="A"> A) The system operates at high speed.</label><br>
+                <label><input type="radio" name="q5" value="B"> B) The system responds to inputs without delay.</label><br>
+                <label><input type="radio" name="q5" value="C"> C) The system can only perform one function at a time.</label><br>
+                <label><input type="radio" name="q5" value="D"> D) The system requires user input to function.</label><br>
+                <div id="answer5"></div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <h3>6. Which of the following applications does NOT typically use embedded systems?</h3>
+                <label><input type="radio" name="q6" value="A"> A) Consumer electronics</label><br>
+                <label><input type="radio" name="q6" value="B"> B) Industrial control systems</label><br>
+                <label><input type="radio" name="q6" value="C"> C) Word processing software</label><br>
+                <label><input type="radio" name="q6" value="D"> D) Automotive systems</label><br>
+                <div id="answer6"></div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <h3>7. Which architecture uses the same physical memory for instructions and data?</h3>
+                <label><input type="radio" name="q7" value="A"> A) Harvard Architecture</label><br>
+                <label><input type="radio" name="q7" value="B"> B) Von Neumann Architecture</label><br>
+                <label><input type="radio" name="q7" value="C"> C) RISC Architecture</label><br>
+                <label><input type="radio" name="q7" value="D"> D) CISC Architecture</label><br>
+                <div id="answer7"></div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <h3>8. What is the main advantage of Harvard Architecture over Von Neumann Architecture?</h3>
+                <label><input type="radio" name="q8" value="A"> A) Lower cost</label><br>
+                <label><input type="radio" name="q8" value="B"> B) Simultaneous access to instructions and data</label><br>
+                <label><input type="radio" name="q8" value="C"> C) Simplicity in design</label><br>
+                <label><input type="radio" name="q8" value="D"> D) Higher power consumption</label><br>
+                <div id="answer8"></div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <h3>9. Which type of ASIC is designed from the ground up for a specific application?</h3>
+                <label><input type="radio" name="q9" value="A"> A) Semi-custom ASIC</label><br>
+                <label><input type="radio" name="q9" value="B"> B) Full custom ASIC</label><br>
+                <label><input type="radio" name="q9" value="C"> C) Gate Array ASIC</label><br>
+                <label><input type="radio" name="q9" value="D"> D) Programmable ASIC</label><br>
+                <div id="answer9"></div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <h3>10. Which programming language is most commonly used for embedded software development?</h3>
+                <label><input type="radio" name="q10" value="A"> A) Python</label><br>
+                <label><input type="radio" name="q10" value="B"> B) C</label><br>
+                <label><input type="radio" name="q10" value="C"> C) Java</label><br>
+                <label><input type="radio" name="q10" value="D"> D) HTML</label><br>
+                <div id="answer10"></div>
+            </div>
+
+            <!-- Question 11 -->
+            <div class="question">
+                <h3>11. What is the role of a power source in an embedded system?</h3>
+                <label><input type="radio" name="q11" value="A"> A) It processes data.</label><br>
+                <label><input type="radio" name="q11" value="B"> B) It stores information.</label><br>
+                <label><input type="radio" name="q11" value="C"> C) It provides the necessary power for operation.</label><br>
+                <label><input type="radio" name="q11" value="D"> D) It connects the system to the internet.</label><br>
+                <div id="answer11"></div>
+            </div>
+
+            <!-- Question 12 -->
+            <div class="question">
+                <h3>12. What is a watchdog timer used for in embedded systems?</h3>
+                <label><input type="radio" name="q12" value="A"> A) To keep track of time</label><br>
+                <label><input type="radio" name="q12" value="B"> B) To reset the system after a predefined timeout</label><br>
+                <label><input type="radio" name="q12" value="C"> C) To monitor temperature</label><br>
+                <label><input type="radio" name="q12" value="D"> D) To manage power consumption</label><br>
+                <div id="answer12"></div>
+            </div>
+
+            <!-- Question 13 -->
+            <div class="question">
+                <h3>13. What does the reset circuit in an embedded system do?</h3>
+                <label><input type="radio" name="q13" value="A"> A) Activates the processor</label><br>
+                <label><input type="radio" name="q13" value="B"> B) Initializes the system to a known state</label><br>
+                <label><input type="radio" name="q13" value="C"> C) Configures external devices</label><br>
+                <label><input type="radio" name="q13" value="D"> D) Monitors system performance</label><br>
+                <div id="answer13"></div>
+            </div>
+
+            <!-- Question 14 -->
+            <div class="question">
+                <h3>14. What is the function of system timers in embedded systems?</h3>
+                <label><input type="radio" name="q14" value="A"> A) To execute programs</label><br>
+                <label><input type="radio" name="q14" value="B"> B) To provide system interrupts periodically</label><br>
+                <label><input type="radio" name="q14" value="C"> C) To manage power supply</label><br>
+                <label><input type="radio" name="q14" value="D"> D) To store data</label><br>
+                <div id="answer14"></div>
+            </div>
+
+            <!-- Question 15 -->
+            <div class="question">
+                <h3>15. What is the main purpose of memory in an embedded system?</h3>
+                <label><input type="radio" name="q15" value="A"> A) To provide power</label><br>
+                <label><input type="radio" name="q15" value="B"> B) To store instructions and data</label><br>
+                <label><input type="radio" name="q15" value="C"> C) To manage communication</label><br>
+                <label><input type="radio" name="q15" value="D"> D) To process information</label><br>
+                <div id="answer15"></div>
+            </div>
+
+            <!-- Question 16 -->
+            <div class="question">
+                <h3>16. Which of the following is a characteristic of ASICs?</h3>
+                <label><input type="radio" name="q16" value="A"> A) They can be used in any application.</label><br>
+                <label><input type="radio" name="q16" value="B"> B) They are tailored for specific applications.</label><br>
+                <label><input type="radio" name="q16" value="C"> C) They have a longer design cycle than FPGAs.</label><br>
+                <label><input type="radio" name="q16" value="D"> D) They are cheaper than general-purpose ICs.</label><br>
+                <div id="answer16"></div>
+            </div>
+
+            <!-- Question 17 -->
+            <div class="question">
+                <h3>17. What is a Semi-Custom ASIC?</h3>
+                <label><input type="radio" name="q17" value="A"> A) A chip designed for a specific application with all custom components</label><br>
+                <label><input type="radio" name="q17" value="B"> B) A chip that uses predefined logic cells with customizable interconnects</label><br>
+                <label><input type="radio" name="q17" value="C"> C) A chip that can be programmed after manufacturing</label><br>
+                <label><input type="radio" name="q17" value="D"> D) A general-purpose chip</label><br>
+                <div id="answer17"></div>
+            </div>
+
+            <!-- Question 18 -->
+            <div class="question">
+                <h3>18. What does the term 'gate array' refer to in ASIC technology?</h3>
+                <label><input type="radio" name="q18" value="A"> A) A fully customized chip</label><br>
+                <label><input type="radio" name="q18" value="B"> B) A chip with predefined logic gates and customizable interconnections</label><br>
+                <label><input type="radio" name="q18" value="C"> C) A chip used only in consumer electronics</label><br>
+                <label><input type="radio" name="q18" value="D"> D) A type of programmable logic device</label><br>
+                <div id="answer18"></div>
+            </div>
+
+            <!-- Question 19 -->
+            <div class="question">
+                <h3>19. Which of the following is a type of programmable ASIC?</h3>
+                <label><input type="radio" name="q19" value="A"> A) Full Custom ASIC</label><br>
+                <label><input type="radio" name="q19" value="B"> B) Gate Array ASIC</label><br>
+                <label><input type="radio" name="q19" value="C"> C) FPGA</label><br>
+                <label><input type="radio" name="q19" value="D"> D) Standard Cell ASIC</label><br>
+                <div id="answer19"></div>
+            </div>
+
+            <!-- Question 20 -->
+            <div class="question">
+                <h3>20. What is a notable application of ASIC technology?</h3>
+                <label><input type="radio" name="q20" value="A"> A) Basic calculators</label><br>
+                <label><input type="radio" name="q20" value="B"> B) Bitcoin mining</label><br>
+                <label><input type="radio" name="q20" value="C"> C) Desktop computers</label><br>
+                <label><input type="radio" name="q20" value="D"> D) Word processing software</label><br>
+                <div id="answer20"></div>
+            </div>
+
+            <!-- Question 21 -->
+            <div class="question">
+                <h3>21. What is the primary purpose of a communication interface in an embedded system?</h3>
+                <label><input type="radio" name="q21" value="A"> A) To power the device</label><br>
+                <label><input type="radio" name="q21" value="B"> B) To communicate with subsystems and external devices</label><br>
+                <label><input type="radio" name="q21" value="C"> C) To store data</label><br>
+                <label><input type="radio" name="q21" value="D"> D) To execute software instructions</label><br>
+                <div id="answer21"></div>
+            </div>
+
+            <!-- Question 22 -->
+            <div class="question">
+                <h3>22. Which of the following is an example of a wired communication interface?</h3>
+                <label><input type="radio" name="q22" value="A"> A) Bluetooth</label><br>
+                <label><input type="radio" name="q22" value="B"> B) Infrared</label><br>
+                <label><input type="radio" name="q22" value="C"> C) USB</label><br>
+                <label><input type="radio" name="q22" value="D"> D) Wi-Fi</label><br>
+                <div id="answer22"></div>
+            </div>
+
+            <!-- Question 23 -->
+            <div class="question">
+                <h3>23. What type of communication interface connects various components within an embedded product?</h3>
+                <label><input type="radio" name="q23" value="A"> A) External Communication Interface</label><br>
+                <label><input type="radio" name="q23" value="B"> B) Onboard Communication Interface</label><br>
+                <label><input type="radio" name="q23" value="C"> C) User Interface</label><br>
+                <label><input type="radio" name="q23" value="D"> D) Power Interface</label><br>
+                <div id="answer23"></div>
+            </div>
+
+            <!-- Question 24 -->
+            <div class="question">
+                <h3>24. Which communication protocol is NOT typically used for embedded systems?</h3>
+                <label><input type="radio" name="q24" value="A"> A) I2C</label><br>
+                <label><input type="radio" name="q24" value="B"> B) SPI</label><br>
+                <label><input type="radio" name="q24" value="C"> C) HTTP</label><br>
+                <label><input type="radio" name="q24" value="D"> D) UART</label><br>
+                <div id="answer24"></div>
+            </div>
+
+            <!-- Question 25 -->
+            <div class="question">
+                <h3>25. What does the term 'Product level communication interface' refer to?</h3>
+                <label><input type="radio" name="q25" value="A"> A) The internal communication between components</label><br>
+                <label><input type="radio" name="q25" value="B"> B) Data transfer between the embedded system and external devices</label><br>
+                <label><input type="radio" name="q25" value="C"> C) The power supply interface</label><br>
+                <label><input type="radio" name="q25" value="D"> D) The user input interface</label><br>
+                <div id="answer25"></div>
+            </div>
+
+            <!-- Question 26 -->
+            <div class="question">
+                <h3>26. Which of the following statements about embedded systems is true?</h3>
+                <label><input type="radio" name="q26" value="A"> A) They are always connected to the internet.</label><br>
+                <label><input type="radio" name="q26" value="B"> B) They typically have a user interface.</label><br>
+                <label><input type="radio" name="q26" value="C"> C) They are dedicated to specific tasks.</label><br>
+                <label><input type="radio" name="q26" value="D"> D) They are not programmable.</label><br>
+                <div id="answer26"></div>
+            </div>
+
+            <!-- Question 27 -->
+            <div class="question">
+                <h3>27. What does the acronym FPGA stand for?</h3>
+                <label><input type="radio" name="q27" value="A"> A) Field Programmable Gate Array</label><br>
+                <label><input type="radio" name="q27" value="B"> B) Fast Programmable Gate Array</label><br>
+                <label><input type="radio" name="q27" value="C"> C) Fixed Programmable Gate Array</label><br>
+                <label><input type="radio" name="q27" value="D"> D) Field Programmed General Array</label><br>
+                <div id="answer27"></div>
+            </div>
+
+            <!-- Question 28 -->
+            <div class="question">
+                <h3>28. What is the main advantage of using a high-level programming language for embedded systems?</h3>
+                <label><input type="radio" name="q28" value="A"> A) It requires less memory.</label><br>
+                <label><input type="radio" name="q28" value="B"> B) It is easier to write and understand.</label><br>
+                <label><input type="radio" name="q28" value="C"> C) It executes faster than machine code.</label><br>
+                <label><input type="radio" name="q28" value="D"> D) It can directly manipulate hardware.</label><br>
+                <div id="answer28"></div>
+            </div>
+
+            <!-- Question 29 -->
+            <div class="question">
+                <h3>29. Which of the following is a feature of embedded systems?</h3>
+                <label><input type="radio" name="q29" value="A"> A) General-purpose functionality</label><br>
+                <label><input type="radio" name="q29" value="B"> B) Dependence on operating systems</label><br>
+                <label><input type="radio" name="q29" value="C"> C) Integration of software and hardware</label><br>
+                <label><input type="radio" name="q29" value="D"> D) High-level user interaction</label><br>
+                <div id="answer29"></div>
+            </div>
+
+            <!-- Question 30 -->
+            <div class="question">
+                <h3>30. Which type of memory is commonly used in embedded systems?</h3>
+                <label><input type="radio" name="q30" value="A"> A) SSD</label><br>
+                <label><input type="radio" name="q30" value="B"> B) ROM</label><br>
+                <label><input type="radio" name="q30" value="C"> C) HDD</label><br>
+                <label><input type="radio" name="q30" value="D"> D) Cloud storage</label><br>
+                <div id="answer30"></div>
+            </div>
+<div id="quote" style="display: none;"></div>
+            <button type="button" onclick="checkAnswers()">Submit Answers</button>
+        </form>
+    </div>
+
+    <script>
+    function checkAnswers() {
+        const answers = {
+            q1: 'B',
+            q2: 'C',
+            q3: 'C',
+            q4: 'B',
+            q5: 'B',
+            q6: 'C',
+            q7: 'B',
+            q8: 'B',
+            q9: 'B',
+            q10: 'B',
+            q11: 'C',
+            q12: 'B',
+            q13: 'B',
+            q14: 'B',
+            q15: 'B',
+            q16: 'B',
+            q17: 'B',
+            q18: 'B',
+            q19: 'C',
+            q20: 'B',
+            q21: 'B',
+            q22: 'C',
+            q23: 'B',
+            q24: 'C',
+            q25: 'B',
+            q26: 'C',
+            q27: 'A',
+            q28: 'B',
+            q29: 'C',
+            q30: 'B',
+        };
+
+        let score = 0;
+        for (let question in answers) {
+            const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+            const answerDiv = document.getElementById(`answer${question.slice(1)}`);
+            if (selectedOption && selectedOption.value === answers[question]) {
+                score++;
+                answerDiv.innerText = `You are right as always! The answer is ${answers[question]}`;
+                answerDiv.style.color = "green";
+            } else {
+                answerDiv.innerText = `You missed it! The correct answer is ${answers[question]}`;
+                answerDiv.style.color = "red";
+            }
+        }
+
+        alert(`Good Job! Your score is ${score} out of ${Object.keys(answers).length}`);
+
+        // Display the quote after submission
+        document.getElementById('quote').innerText = "Thank you ,For giving the quiz";
+        document.getElementById('quote').style.display = 'block'; // Ensure it's displayed
+    }
+</script>
+</body>
+</html>                                                                                                                                                                  

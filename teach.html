@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <section class="flex">
+        <a href="teach.html" class="logo">EduHub</a>
+
+        <form action="search.html" method="post" class="search-form">
+            <input type="text" name="search_box" required placeholder="search students..." maxlength="100">
+            <button type="submit" class="fas fa-search"></button>
+        </form>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="toggle-btn" class="fas fa-sun"></div>
+        </div>
+
+        <div class="profile">
+            <img src="pic-9.jpg" class="image" alt="Teacher Profile">
+            <h3 class="name" id="userName">Teacher Name</h3>
+            <p class="role" id="userRole">Teacher</p>
+            <a href="profile2.html" class="btn">view profile</a>
+            <div class="flex-btn">
+                <a href="index.html" class="option-btn">log out</a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="side-bar">
+    <div id="close-btn">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="profile">
+        <img src="pic-9.jpg" class="image" alt="Teacher Profile">
+        <h3 class="name" id="userNameSidebar">Teacher Name</h3>
+        <p class="role" id="userRoleSidebar">Teacher</p>
+        <a href="profile2.html" class="btn">view profile</a>
+    </div>
+
+    <nav class="navbar">
+        <a href="teach.html"><i class="fas fa-home"></i><span>home</span></a>
+        <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
+        <a href="manage_courses.html"><i class="fas fa-graduation-cap"></i><span>manage courses</span></a>
+        <a href="viewassign.html"><i class="fas fa-file-alt"></i><span>student submissions</span></a>
+        <a href="contact.html"><i class="fas fa-headset"></i><span>contact support</span></a>
+    </nav>
+</div>
+
+<section class="home-grid">
+    <h1 class="heading">Quick Options</h1>
+    <div class="box-container">
+        <div class="box">
+            <h3 class="title">Manage Classes</h3>
+            <p class="likes">View Students:</p>
+            <a href="view.html" class="inline-btn">View Students</a>
+            <p class="likes">Upload Course Materials:</p>
+            <a href="upload_materials.html" class="inline-btn">Upload</a>
+            <p class="likes">Upload and View Notice</p>
+            <a href="notice.html" class="inline-btn">Upload or View Notice</a>
+        </div>
+        <div class="box">
+            <h3 class="title">Communicate with Students</h3>
+            <p class="tutor">Send Messages:</p>
+            <a href="send_message.html" class="inline-btn">Send Message</a>
+            <p class="tutor">Schedule Meetings:</p>
+            <a href="schedule_meeting.html" class="inline-btn">Schedule</a>
+        </div>
+        <div class="box">
+            <h3 class="title">Monitor Student Progress</h3>
+            <p class="tutor">Check Assignments:</p>
+            <a href="check_assignments.html" class="inline-btn">Check Assignments</a>
+            <p class="tutor">View Grades:</p>
+            <a href="view_grades.html" class="inline-btn">View Grades</a>
+        </div>
+    </div>
+</section>
+
+<section class="courses">
+    <h1 class="heading">Your Courses</h1>
+    <div class="box-container">
+        <div class="box">
+            <div class="tutor">
+                <img src="pic-2.jpg" alt="Course Tutor">
+                <div class="info">
+                    <h3>Course Name</h3>
+                    <span>Last Updated: 21-10-2022</span>
+                </div>
+            </div>
+            <div class="thumb">
+                <img src="thumb-1.png" alt="Course Thumbnail">
+                <span>10 videos</span>
+            </div>
+            <h3 class="title">Complete HTML Tutorial</h3>
+            <a href="playlist.html" class="inline-btn">manage playlist</a>
+        </div>
+        <div class="box">
+            <div class="tutor">
+                <img src="pic-3.jpg" alt="Course Tutor">
+                <div class="info">
+                    <h3>Course Name</h3>
+                    <span>Last Updated: 21-10-2022</span>
+                </div>
+            </div>
+            <div class="thumb">
+                <img src="thumb-2.png" alt="Course Thumbnail">
+                <span>10 videos</span>
+            </div>
+            <h3 class="title">Complete CSS Tutorial</h3>
+            <a href="playlist.html" class="inline-btn">manage playlist</a>
+        </div>
+        <!-- Add more course boxes as needed -->
+    </div>
+</section>
+
+<script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const userName = localStorage.getItem('username');
+        const userRole = localStorage.getItem('role');
+
+        if (userName) {
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('userNameSidebar').textContent = userName;
+        }
+        if (userRole) {
+            document.getElementById('userRole').textContent = userRole;
+            document.getElementById('userRoleSidebar').textContent = userRole;
+        }
+    });
+</script>
+
+</body>
+</html>

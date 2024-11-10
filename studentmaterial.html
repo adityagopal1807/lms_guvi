@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Student View - Course Materials</title>
+   <link rel="stylesheet" href="style.css">
+   <style>
+      /* Basic styling for the student view */
+      body {
+         font-family: Arial, sans-serif;
+         background-color: rgb(6, 33, 57);
+         margin: 0;
+         padding: 0;
+      }
+      .container {
+         max-width: 800px;
+         margin: 2rem auto;
+         padding: 20px;
+         background-color: #fff;
+         border-radius: 8px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      h2 {
+         text-align: center;
+         color: #333;
+      }
+      table {
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 1rem;
+      }
+      th, td {
+         padding: 10px;
+         border: 1px solid #ddd;
+      }
+      th {
+         background-color: #007bff;
+         color: white;
+      }
+      .btn-download {
+         color: #007bff;
+         text-decoration: none;
+      }
+   </style>
+</head>
+<body>
+
+<div class="container">
+   <h2>Available Course Materials</h2>
+   <table>
+      <thead>
+         <tr>
+            <th>Uploaded By</th>
+            <th>Course Name</th>
+            <th>File</th>
+            <th>Date</th>
+         </tr>
+      </thead>
+      <tbody id="materialsTable">
+         <!-- Rows will be populated by JavaScript -->
+      </tbody>
+   </table>
+</div>
+
+<script>
+   function loadCourseMaterials() {
+      const assignments = JSON.parse(localStorage.getItem('assignments')) || [];
+      const materialsTable = document.getElementById('materialsTable');
+      materialsTable.innerHTML = ''; // Clear any existing rows
+
+      assignments.forEach(assignment => {
+         const row = document.createElement('tr');
+         row.innerHTML = `
+            <td>${assignment.studentName}</td>
+            <td>${assignment.courseName}</td>
+            <td><a href="${assignment.fileData}" download="${assignment.fileName}" class="btn-download">${assignment.fileName}</a></td>
+            <td>${assignment.date}</td>
+         `;
+         materialsTable.appendChild(row);
+      });
+   }
+
+   document.addEventListener('DOMContentLoaded', loadCourseMaterials);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher View</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling for layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(6, 33, 57);
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color:rgb(6, 33, 57);
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        .header h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .container h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: rgb(6, 33, 57);
+            color: white;
+        }
+        td a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+        .btn-delete {
+            color: red;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-delete:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <a href="home.html" class="logo">EduHub</a>
+    <h2>Teacher's Assignment Dashboard</h2>
+</header>
+
+<section class="container">
+    <h3>Uploaded Assignments</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>File</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="assignmentsTable">
+            <!-- Populated by JavaScript -->
+        </tbody>
+    </table>
+</section>
+
+<script>
+    function loadAssignments() {
+        const assignments = JSON.parse(localStorage.getItem('assignments')) || [];
+        const assignmentsTable = document.getElementById('assignmentsTable');
+        assignmentsTable.innerHTML = ''; // Clear the table
+
+        assignments.forEach((assignment, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${assignment.studentName}</td>
+                <td>${assignment.studentEmail}</td>
+                <td>${assignment.courseName}</td>
+                <td><a href="${assignment.fileData}" download="${assignment.fileName}" class="btn-download">${assignment.fileName}</a></td>
+                <td>${assignment.date}</td>
+                <td><span class="btn-delete" onclick="deleteAssignment(${index})">Delete</span></td>
+            `;
+            assignmentsTable.appendChild(row);
+        });
+    }
+
+    function deleteAssignment(index) {
+        const assignments = JSON.parse(localStorage.getItem('assignments')) || [];
+        assignments.splice(index, 1); // Remove the specific assignment
+        localStorage.setItem('assignments', JSON.stringify(assignments)); // Update localStorage
+        loadAssignments(); // Refresh the table
+        alert('Assignment deleted successfully!');
+    }
+
+    document.addEventListener('DOMContentLoaded', loadAssignments);
+</script>
+
+</body>
+</html>

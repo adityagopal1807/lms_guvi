@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgb(6, 33, 57);
+        }
+
+        .signup-container {
+            background-color: #a4bfd3;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .signup-container h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .signup-container input[type="text"],
+        .signup-container input[type="password"],
+        .signup-container input[type="email"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .signup-container input[type="text"]:focus,
+        .signup-container input[type="password"]:focus,
+        .signup-container input[type="role"]:focus,
+        .signup-container input[type="email"]:focus {
+            border-color: rgb(6, 33, 57);
+            outline: none;
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: rgb(6, 33, 57);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .signup-container button:hover {
+            background-color: rgb(6, 33, 57);
+        }
+
+        .error-message,
+        .success-message {
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .success-message {
+            color:rgb(6, 33, 57);
+        }
+
+        .login-link {
+            margin-top: 1.5rem;
+            color: #333;
+        }
+
+        .login-link a {
+            color: rgb(6, 33, 57);
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        .styled-select {
+
+            width: 100%;
+
+            padding: 0.75rem;
+
+            margin-bottom: Irem;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: Irem;
+        }    
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>EduHub Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" id="newUsername" placeholder="Create Username" required>
+            <input type="email" id="newEmail" placeholder="Email" required>
+            <select id="role" name="role" required class="styled-select">
+
+<option value="" disabled selected>Select your role</option> <option value="Student">Student</option> <option value="Teacher">Teacher</option>
+
+</select>
+<br>
+<br>
+            <input type="password" id="newPassword" placeholder="Create Password" required>
+
+
+            
+            <p class="error-message" id="errorMessage">Please fill in all fields</p>
+            <p class="success-message" id="successMessage">Account created successfully! Redirecting...</p>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p class="login-link">Already have an account? <a href="index.html">Login</a></p>
+    </div>
+
+    <script>
+        const signupForm = document.getElementById('signupForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const newUsername = document.getElementById('newUsername').value;
+            const newEmail = document.getElementById('newEmail').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const role= document.getElementById('role').value;
+
+            if (newUsername === '' || newPassword === '' || newEmail === '' || role === '') {
+                errorMessage.innerHTML = 'Please fill in all fields';
+                errorMessage.style.display = 'block';
+            } else {
+                // Retrieve existing users from localStorage
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+
+                // Check if the username is already taken
+                const userExists = users.some(user => user.email === newEmail);
+                if (userExists) {
+                    errorMessage.innerHTML = 'User already exists with this email id!';
+                    errorMessage.style.display = 'block';
+                } else {
+                    // Add new user to the users array
+                    users.push({ username: newUsername, email: newEmail, password: newPassword, role: role });
+                    localStorage.setItem('users', JSON.stringify(users));
+
+                    // Show success message and redirect
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
